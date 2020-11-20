@@ -1,0 +1,172 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@500;600&display=swap');
+
+$violet: hsl(263, 55%, 52%);
+$dark-grayish: hsl(217, 19%, 35%);
+$dark-blackish: hsl(219, 29%, 14%);
+$white: hsl(0, 0%, 100%);
+$light-gray: hsl(0, 0%, 81%);
+$light-grayish: hsl(210, 46%, 95%);
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body{
+  font-family: 'Barlow Semi Condensed', sans-serif;
+  font-size: 13px;
+  background: $light-grayish;
+}
+
+h1{
+  font-size: 18px;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.container{
+  width: 1100px;
+  max-width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  padding: 1.5rem;
+}
+
+.testimonials{
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  grid-template-areas:
+                      'Daniel Daniel Jonathan Kira' 
+                      'Jeanette Patrick Patrick Kira';
+  grid-gap: 1.5rem; 
+  .testimonial{
+    border-radius: 8px;
+    padding: 1.5rem 2rem;
+    height: 100%;
+    .client{
+      display: flex;
+      margin-bottom: 1rem;
+      gap: 1rem;
+      img{
+        width: 30px;
+        border-radius: 50%;
+      }
+      .client-infos{
+        h5{
+          font-weight: 500;
+          font-size: 13px;
+        }
+        p{
+          opacity: .5;
+          font-weight: 500;
+          font-size: 11px;
+        }
+      }
+    }
+    p{
+      opacity: .7;
+      font-weight: 500;
+    }
+  }
+  .first{
+    background: url(./images/bg-pattern-quotation.svg);
+    background-repeat: no-repeat;
+    background-color: $violet;
+    background-position: 75% top;
+    color: $white;
+    grid-area: Daniel;
+    .client{
+      img{
+        border: 2px solid rgba($white, 0.4);
+      }
+    }
+  }
+  .second{
+    background-color: $dark-grayish;
+    color: $white;
+    grid-area: Jonathan;
+  }
+  .third{
+    background-color: $white;
+    color: $dark-grayish;
+    grid-area: Jeanette;
+  }
+  .fourth{
+    background-color: $dark-blackish;
+    color: $white;
+    grid-area: Patrick;
+    .client{
+      img{
+        border: 2px solid $violet;
+      }
+    }
+  }
+  .fifth{
+    background-color: $white;
+    color: $dark-grayish;
+    grid-area: Kira;
+  }
+}
+
+// Mobile Responsive 768px
+
+@media screen and (max-width:768px){
+
+  h1{
+    font-size: 20px;
+  }
+
+  .container{
+    width: 95%;
+    max-width: 100%;
+    height: 100%;
+    padding: 4rem 1rem;
+  }
+  
+.testimonials{
+  grid-template-rows: auto;
+  grid-template-areas:
+                      'Daniel Daniel Jonathan Jonathan' 
+                      'Daniel Daniel Jeanette Jeanette'
+                      // 'Jeanette Jeanette Jeanette Jeanette' 
+                      'Patrick Patrick Kira Kira'
+                      'Patrick Patrick Kira Kira';
+  .first{
+    background-position: 90% top;
+  }
+}
+}
+
+// Mobile Responsive 375px
+
+@media screen and (max-width:375px){
+
+  h1{
+    font-size: 20px;
+  }
+
+  .container{
+    width: 95%;
+    max-width: 100%;
+    height: 100%;
+    padding: 4rem 1rem;
+  }
+  
+.testimonials{
+  grid-template-rows: auto;
+  grid-template-areas:
+                      'Daniel Daniel Daniel Daniel' 
+                      'Jonathan Jonathan Jonathan Jonathan'
+                      'Jeanette Jeanette Jeanette Jeanette' 
+                      'Patrick Patrick Patrick Patrick'
+                      'Kira Kira Kira Kira';
+  .first{
+    background-position: 90% top;
+  }
+}
+}
